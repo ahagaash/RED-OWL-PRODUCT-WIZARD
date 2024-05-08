@@ -1,0 +1,52 @@
+body {
+    background: #f5f5f5; /* Lighter background */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.main-title {
+    font-size: 36px;
+    font-weight: bold; /* Added font weight */
+    color: #FF6347; /* Light red color */
+    background: linear-gradient(to right, #FF6347, #FF4500); /* Gradient background */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    padding: 20px 0; /* Added padding to create space */
+}
+
+.box {
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto; /* Center the box horizontally and add margin */
+}
+
+.box-heading {
+    font-size: 24px;
+    color: #333333;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF6347; /* Red color */
+    color: white; /* White text color */
+    font-weight: bold; /* Bold font */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #FF4500; /* Darker red color on hover */
+}
