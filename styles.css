@@ -50,3 +50,21 @@ button {
 button:hover {
     background-color: #FF4500; /* Darker red color on hover */
 }
+/* Existing CSS styles */
+
+.back-button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #808080; /* Gray color for back button */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #696969; /* Darker gray color on hover */
+}

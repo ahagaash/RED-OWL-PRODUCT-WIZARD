@@ -24,6 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
         buttonBox.appendChild(button);
     }
 
+    function goBack() {
+        clearButtons();
+        Object.keys(buttonMapping).forEach(key => {
+            createButton(key, buttonMapping[key]);
+        });
+    }
+
     // Create initial buttons
     Object.keys(buttonMapping).forEach(key => {
         createButton(key, buttonMapping[key]);
