@@ -1,19 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Owl Product Wizard</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Owl Features</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      color: #FF6347;
+      margin-top: 30px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+
+    .card {
+      width: 300px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px;
+      padding: 20px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 10px;
+      display: block;
+      border-radius: 50%;
+    }
+
+    .sub-feature {
+      margin-top: 20px;
+      display: none; /* Initially hide sub-features */
+    }
+
+    .sub-feature.show {
+      display: block; /* Show sub-features when toggled */
+    }
+
+    .sub-feature h4 {
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .sub-feature p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .show-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      color: #888;
+      transition: transform 0.3s ease;
+    }
+
+    .show-button:hover {
+      color: #555;
+      transform: rotate(180deg);
+    }
+  </style>
 </head>
 <body>
-    <h1 class="main-title">Red Owl Product Wizard</h1>
-    <div class="box" id="buttonBox">
-        <h2 class="box-heading">Select an Action</h2>
-        <!-- Back Button -->
-        <button class="back-button" onclick="goBack()">Back</button>
-    </div>
+  <h1>Red Owl Features</h1>
+  <div class="container" id="featureContainer">
+    <!-- Features will be dynamically added here -->
+  </div>
 
-    <script src="script.js"></script>
+  <script>
+   const features = [
+      {
+        name: "Budget Management",
+        image: "https://via.placeholder.com/50/FF6347/FFFFFF/?text=BM",
+        subFeatures: [
+          {
+            name: "Budget Life Cycle",
+            description: "Budget creation, set budget limit, etc."
+          }
+        ]
+      },
+      {
+        name: "Payment Card",
+        image: "https://via.placeholder.com/50/FF6347/FFFFFF/?text=Card",
+        subFeatures: [
+          {
+            name: "Card Controls",
+            description: "Pausing the card, deleting the card, reassigning the card, renewing the card"
+          },
+          {
+            name: "Issuing Virtual and Physical Card",
+            description: "Issuing virtual and physical cards for online transactions"
+          },
+		  {
+            name: "Restriction on payments",
+            description: "card will only spend on invidiual eg travel card is only limied totravel purpose expense it is not allowed to spend on other expenses like food with use of mcc codes"
+          }
+        ]
+      },
+	  
+	  {
+        name: "Multi currency global account",
+        image: "https://via.placeholder.com/50/FF6347/FFFFFF/?text=Wallet",
+        subFeatures: [
+          {
+            name: "wallet transaction",
+            description: "transfer money to different account "
+          },
+          {
+            name: "Currency Conversion",
+            description: "Automatically convert amounts between different currencies."
+          },
+		  {
+            name: "Currency Flexibility",
+            description: "Multi-currency accounts support transactions in various currenciesbeyond the company’s base currency."
+          }
+        ]
+      },
+	  
+	  {
+        name: "Employee reimbursment",
+        image: "https://via.placeholder.com/50/FF6347/FFFFFF/?text=ER",
+        subFeatures: [
+          {
+            name: "Real-Time Monitoring",
+            description: "Tracking expense claims in real-time"
+          },
+          {
+            name: "Approval Workflow:",
+            description: "Streamlining approvals for reimbursement requests."
+          },
+		  {
+            name: "Automated Expense Reports",
+            description: "Employees can easily file expenditure reports."
+          },
+		  {
+            name: "Enforce policy compliance",
+            description: "Define specific expense categories like transport avoid spending on other categories seting customized rules before claming the fund set deadline on claimautomated review on spending"
+          }
+        ]
+      },
+	  {
+        name: "Invoice Payment",
+        image: "https://via.placeholder.com/50/FF6347/FFFFFF/?text=Invoice",
+        subFeatures: [
+          {
+            name: "Real-Time Monitoring",
+            description: "Tracking expense claims in real-time"
+          },
+          {
+            name: "Approval Workflow:",
+            description: "Streamlining approvals for reimbursement requests."
+          },
+		  {
+            name: "Integration with Accounting Systems",
+            description: "Seamlessly transfer approved invoices to accounting systems such as ERP or general ledger software).Ensure accurate financial records and timely payments."
+          },
+		  {
+            name: "Automated Data Extraction",
+            description: "Extract relevant information (such as vendor name, invoice number, date, and line items) from scanned or uploaded invoices using OCR technology.Minimize manual data entry and reduce errors."
+          }
+        ]
+      },
+	  {
+	   name: "Notification Management",
+        image: "https://via.placeholder.com/50/FF6347/FFFFFF/?text=Notification",
+        subFeatures: [
+          {
+            name: "Check Payment Notification:",
+            description: "Check Payment Notification:Alerts employees when a reimbursement check is issued.Provides details on the payment amount and delivery.Direct Deposit Payment Notification:Informs employees when their reimbursement is directly deposited into their bank account."
+          },
+          {
+            name: "Expense Reimbursement Notifications",
+            description: "These notifications notify employees about the status of their reimbursement requests.Employees receive updates when their expenses are approved and scheduled for payment."
+          },
+		  {
+            name: "Expense Report Approval Notifications",
+            description: "These notifications inform relevant parties (such as managers or finance teams) an expense report is submitted for approval. Managers receive alerts to review and approve or reject the submitted expenses "
+          },
+		  
+        ]
+      },
+	  
+	  {
+	   name: "Integration with tools",
+        image: "https://via.placeholder.com/50/FF6347/FFFFFF/?text=Accounting",
+        subFeatures: [
+          {
+            name: "Integration with accounting tools",
+            description: "integrating the expense on accounting tools like quick books xero"
+          },
+          {
+            name: "Bank Statement Import:",
+            description: "Import bank transactions."
+          },
+		 
+		  
+        ]
+      },
+	 
+    ];
+
+    function generateFeatureCards() {
+      const container = document.getElementById("featureContainer");
+      features.forEach(feature => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        const image = document.createElement("img");
+        image.src = feature.image;
+        image.alt = "Card Image";
+        card.appendChild(image);
+
+        const button = document.createElement("button");
+        button.classList.add("show-button");
+        button.textContent = "▼";
+        button.onclick = function() { toggleSubFeature(this); };
+        card.appendChild(button);
+
+        const h3 = document.createElement("h3");
+        h3.textContent = feature.name;
+        card.appendChild(h3);
+
+        const featureDiv = document.createElement("div");
+        featureDiv.classList.add("sub-feature");
+        feature.subFeatures.forEach(subFeature => {
+          const h4 = document.createElement("h4");
+          h4.textContent = subFeature.name;
+          const p = document.createElement("p");
+          p.textContent = subFeature.description;
+          featureDiv.appendChild(h4);
+          featureDiv.appendChild(p);
+        });
+
+        card.appendChild(featureDiv);
+        container.appendChild(card);
+      });
+    }
+
+    function toggleSubFeature(button) {
+      const card = button.parentElement;
+      const subFeature = card.querySelector('.sub-feature');
+      subFeature.classList.toggle('show'); // Toggle class to show/hide sub-features
+      button.textContent = subFeature.classList.contains('show') ? "▲" : "▼";
+    }
+
+    generateFeatureCards();
+  </script>
 </body>
 </html>
